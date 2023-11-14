@@ -1,13 +1,19 @@
 import Image from "next/image";
 import { AiOutlineHome } from "react-icons/ai";
-import { BsPeople } from "react-icons/bs";
+import { FaRegFilePdf } from "react-icons/fa6";
 import { TiContacts } from "react-icons/ti";
-import { FiMail } from "react-icons/fi";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import Link from "next/link";
 import { useContext } from "react";
 import { SidebarContext } from "@/context/SidebarContext";
 import { useRouter } from "next/router";
+import { GrDocumentConfig } from "react-icons/gr";
+import { HiOutlineDocumentReport } from "react-icons/hi";
+import { MdMarkEmailRead } from "react-icons/md";
+
+
+
+
 
 const sidebarItems = [
   {
@@ -16,19 +22,29 @@ const sidebarItems = [
     icon: AiOutlineHome,
   },
   {
-    name: "About",
-    href: "/about",
-    icon: BsPeople,
+    name: "Documentos",
+    href: "/documentos",
+    icon: FaRegFilePdf,
   },
   {
-    name: "Mails",
-    href: "/mails",
-    icon: FiMail,
+    name: "Aceites",
+    href: "/aceites",
+    icon: MdMarkEmailRead,
   },
   {
-    name: "Contact",
-    href: "/contact",
+    name: "Gestao",
+    href: "/gestao",
     icon: TiContacts,
+  },
+  {
+    name: "Automacao",
+    href: "/automacao",
+    icon: HiOutlineDocumentReport,
+  },
+  {
+    name: "Configurações",
+    href: "/configuracoes",
+    icon: GrDocumentConfig,
   },
 ];
 
@@ -50,7 +66,7 @@ const Sidebar = () => {
             src="/logo.jpg"
             alt="logo"
           />
-          <p className="sidebar__logo-name">The Brave Coders</p>
+          <p className="sidebar__logo-name"></p>
         </div>
         <ul className="sidebar__list">
           {sidebarItems.map(({ name, href, icon: Icon }) => {
