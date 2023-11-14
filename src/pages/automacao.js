@@ -1,3 +1,5 @@
+// src\pages\automacao.js
+
 import BaseLayout from "../components/BaseLayout";
 
 const Home = () => {

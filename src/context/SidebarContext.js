@@ -1,3 +1,5 @@
+// src\context\SidebarContext.js
+
 import { createContext, useState } from "react";
 
 const initialValue = { isCollapsed: false };

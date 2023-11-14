@@ -1,3 +1,4 @@
+// src\pages\index.js
 import BaseLayout from "../components/BaseLayout";
 
 const Home = () => {

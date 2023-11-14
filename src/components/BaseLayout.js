@@ -1,3 +1,5 @@
+// src\components\BaseLayout.js
+
 import Sidebar from "./Sidebar";
 
 const BaseLayout = ({ children }) => {

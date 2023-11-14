@@ -1,3 +1,5 @@
+// src\pages\configuracoes.js
+
 import BaseLayout from "../components/BaseLayout";
 
 const Home = () => {

@@ -1,3 +1,5 @@
+// src\components\Sidebar.js
+
 import Image from "next/image";
 import { AiOutlineHome } from "react-icons/ai";
 import { FaRegFilePdf } from "react-icons/fa6";
