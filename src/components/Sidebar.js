@@ -13,10 +13,6 @@ import { GrDocumentConfig } from "react-icons/gr";
 import { HiOutlineDocumentReport } from "react-icons/hi";
 import { MdMarkEmailRead } from "react-icons/md";
 
-
-
-
-
 const sidebarItems = [
   {
     name: "Home",
