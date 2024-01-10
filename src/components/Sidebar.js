@@ -1,48 +1,44 @@
 // src\components\Sidebar.js
 
 import Image from "next/image";
-import { AiOutlineHome } from "react-icons/ai";
-import { FaRegFilePdf } from "react-icons/fa6";
-import { TiContacts } from "react-icons/ti";
+
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import Link from "next/link";
 import { useContext } from "react";
 import { SidebarContext } from "@/context/SidebarContext";
 import { useRouter } from "next/router";
-import { GrDocumentConfig } from "react-icons/gr";
-import { HiOutlineDocumentReport } from "react-icons/hi";
-import { MdMarkEmailRead } from "react-icons/md";
+import { IoChatbubble } from "react-icons/io5";
+import { IoMdSend } from "react-icons/io";
+import { IoPersonSharp } from "react-icons/io5";
+import { IoIosBookmarks } from "react-icons/io";
+import { FaStarOfDavid } from "react-icons/fa6";
+
 
 const sidebarItems = [
   {
-    name: "Home",
+    name: "Dashboard",
     href: "/",
-    icon: AiOutlineHome,
+    icon: IoIosBookmarks  ,
   },
   {
-    name: "Documentos",
-    href: "/documentos",
-    icon: FaRegFilePdf,
+    name: "Hebraico",
+    href: "/hebraico",
+    icon: FaStarOfDavid,
   },
   {
-    name: "Aceites",
-    href: "/aceites",
-    icon: MdMarkEmailRead,
+    name: "Parashiot",
+    href: "/parashiot",
+    icon: IoChatbubble,
   },
   {
-    name: "Gestao",
-    href: "/gestao",
-    icon: TiContacts,
+    name: "Disparos",
+    href: "/disparos",
+    icon: IoMdSend,
   },
   {
-    name: "Automacao",
-    href: "/automacao",
-    icon: HiOutlineDocumentReport,
-  },
-  {
-    name: "Configurações",
-    href: "/configuracoes",
-    icon: GrDocumentConfig,
+    name: "Cadastro",
+    href: "/cadastro",
+    icon: IoPersonSharp,
   },
 ];
 

@@ -1,154 +1,130 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import BaseLayout from "../components/BaseLayout";
 import Container from "@mui/material/Container";
-import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import Grid from "@mui/material/Grid";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
 
-const AddCompany = () => {
-  const [token, setToken] = useState(""); // Estado para armazenar o token
-  const [userData, setUserData] = useState([]); // Estado para armazenar dados dos usuários
+const Automacao = () => {
 
-  useEffect(() => {
-    // Função para obter token ao carregar a página
-    const login = async () => {
-      try {
-        const response = await axios.post(
-          "http://localhost:5001/Login",
-          {
-            username: "70031276000112-",
-            password: "123456",
-          }
-        );
+  return <BaseLayout>
+  <Container>
+        <Typography variant="h2">Conceitos</Typography>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <Typography variant="h5">O que é a Torah</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                    O que é a ToraH...
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+          </Grid>
 
-        setToken(response.data.response.token);
-      } catch (error) {
-        console.error("Erro ao fazer login:", error.message);
-      }
-    };
+          <Grid item xs={12}>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel2a-content"
+                id="panel2a-header"
+              >
+                <Typography variant="h5">Cristianismo Vs Judaismo</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>Cristianismo Vs Judaismo...</Typography>
+              </AccordionDetails>
+            </Accordion>
+          </Grid>
 
-    login();
-  }, []);
+          <Grid item xs={12}>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel3a-content"
+                id="panel3a-header"
+              >
+                <Typography variant="h5">desmistificar Lei e Graça</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>desmistificar Lei e Graça...</Typography>
+              </AccordionDetails>
+            </Accordion>
+          </Grid>
 
-  const getUsersData = async () => {
-    try {
-      const response = await axios.get("http://localhost:5001/api/Usuario", {
-        headers: {
-          "Authorization": `Bearer ${token}`,
-          "Accept": "application/json",
-        },
-      });
+        <Grid item xs={12}>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel3a-content"
+                id="panel3a-header"
+              >
+                <Typography variant="h5">Jesus (imagem da igreja católica) Vs Yeshua (The Chosen)</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>Jesus (imagem da igreja católica) Vs Yeshua (The Chosen),...</Typography>
+              </AccordionDetails>
+            </Accordion>
+          </Grid>
 
-      setUserData(response.data);
-      console.log("Dados dos usuários obtidos com sucesso:", response.data);
-    } catch (error) {
-      console.error("Erro ao obter dados dos usuários:", error.message);
-    }
-  };
+          <Grid item xs={12}>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel3a-content"
+                id="panel3a-header"
+              >
+                <Typography variant="h5"> Importancia do Catolicismo e Protestantismo para disceminação da Torah</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography> Importancia do Catolicismo e Protestantismo para disceminação da Torah...</Typography>
+              </AccordionDetails>
+            </Accordion>
+          </Grid>
 
-  const handleFileUpload = async (event) => {
-    const file = event.target.files[0];
+          <Grid item xs={12}>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel3a-content"
+                id="panel3a-header"
+              >
+                <Typography variant="h5"> Conceito de Arrebatamento: Conceito Bíblico Vs Conceito Teológico (filme Deixados para trás)</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography> Conceito de Arrebatamento: Conceito Bíblico Vs Conceito Teológico (filme Deixados para trás)</Typography>
+              </AccordionDetails>
+            </Accordion>
+          </Grid>
 
-    if (file && file.type === "application/pdf") {
-      try {
-        const formData = new FormData();
-        formData.append("file", file);
+          <Grid item xs={12}>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel3a-content"
+                id="panel3a-header"
+              >
+                <Typography variant="h5">Páscoa Vs Pessach</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>Páscoa Vs Pessach</Typography>
+              </AccordionDetails>
+            </Accordion>
+          </Grid>
 
-        // Substitua a URL abaixo pela URL correta do seu backend
-        const uploadUrl = "http://localhost:5001/api/Upload";
 
-        // Adiciona parâmetros adicionais à FormData conforme necessário
-        formData.append("ContentType", "ContentTypeTeste");
-        formData.append("ContentDisposition", "ContentDispositionTeste");
-        formData.append("Headers", JSON.stringify({
-          "additionalProp1": ["string"],
-          "additionalProp2": ["string"],
-          "additionalProp3": ["string"]
-        }));
-        formData.append("Length", "1");
-        formData.append("Name", "teste");
-        formData.append("FileName", "teste");
-
-        await axios.post(uploadUrl, formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        });
-
-        console.log("Arquivo enviado com sucesso!");
-
-        getUsersData();
-      } catch (error) {
-        console.error("Erro ao enviar arquivo:", error.message);
-      }
-    } else {
-      alert("Por favor, selecione um arquivo PDF válido.");
-    }
-  };
-
-  return (
-    <BaseLayout>
-      <Container>
-        <Typography variant="h2">Dashboard</Typography>
-        <Typography variant="body1">Anexar arquivo...</Typography>
-
-        {/* Botão de Anexo de Arquivo */}
-        <Paper elevation={3} style={{ padding: "20px", margin: "20px 0" }}>
-          <label htmlFor="fileInput" style={{ display: "block", marginBottom: "10px" }}>
-            Anexar arquivo PDF:
-          </label>
-          <input
-            type="file"
-            id="fileInput"
-            accept=".pdf"
-            onChange={handleFileUpload}
-            style={{ display: "none" }}
-          />
-          <label htmlFor="fileInput">
-            <Button
-              variant="contained"
-              component="span"
-              startIcon={<CloudUploadIcon />}
-            >
-              Escolher Arquivo
-            </Button>
-          </label>
-        </Paper>
-
-        {/* Botão de GET para obter dados dos usuários */}
-        <Button variant="contained" color="primary" onClick={getUsersData}>
-          Obter Dados dos Usuários
-        </Button>
-
-        {/* Exibir dados dos usuários */}
-        <Typography variant="h3">Dados dos Usuários:</Typography>
-        <table style={{ width: "100%", borderCollapse: "collapse", marginTop: "10px" }}>
-          <thead>
-            <tr>
-              <th style={{ textAlign: "left" }}>Nome</th>
-              <th style={{ textAlign: "left" }}>Email</th>
-              <th style={{ textAlign: "left" }}>CPF</th>
-              <th style={{ textAlign: "left" }}>ID</th>
-              <th style={{ textAlign: "left" }}>Ativo</th>
-            </tr>
-          </thead>
-          <tbody>
-            {userData.map((user) => (
-              <tr key={user.id}>
-                <td style={{ textAlign: "left" }}>{user.nome}</td>
-                <td style={{ textAlign: "left" }}>{user.email}</td>
-                <td style={{ textAlign: "left" }}>{user.cpf}</td>
-                <td style={{ textAlign: "left" }}>{user.id}</td>
-                <td style={{ textAlign: "left" }}>{user.ativo ? 'Sim' : 'Não'}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        </Grid>
       </Container>
-    </BaseLayout>
-  );
+      </BaseLayout>;
 };
 
-export default AddCompany;
+export default Automacao;

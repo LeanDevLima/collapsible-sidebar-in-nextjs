@@ -53,15 +53,15 @@ body {
 }
 
 .sidebar__logo {
-  width: 10.5rem;
-  height: 10.5rem;
+  width: 15rem;
+  height: 10em;
   object-fit: contain;
-  border-radius: 1rem;
+  border-radius: 10rem;
 }
 
 .sidebar__logo-name {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.0rem;
+  font-weight: 200;
 }
 
 .sidebar__list {
